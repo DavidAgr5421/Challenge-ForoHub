@@ -46,14 +46,14 @@ Se implementan operaciones CRUD completas para la entidad Topico. Además, se in
   -**sql**
   -**Copy**
   -**Edit**
-  -**GET: localhost:8080/topics/search?curso=<nombre_curso>&year=<año>**
+  -**GET: localhost:8080/topicos/search?curso=<nombre_curso>&year=<año>**
 -Listado de 10 tópicos más antiguos:
 -++Retorna los primeros 10 tópicos creados, ordenados en forma ascendente según la fecha de creación.
 
   -**bash**
   -**Copy**
   -**Edit**
-  -**GET: localhost:8080/topics/date10**
+  -**GET: localhost:8080/topicos/date10**
 
 ## 📂 Endpoints Disponibles
 
@@ -66,10 +66,10 @@ Se implementan operaciones CRUD completas para la entidad Topico. Además, se in
 | Método | Endpoint                  | Descripción                                |
 |--------|---------------------------|--------------------------------------------|
 | GET    | `/topicoss`                 | Listar todos los tópicos                  |
-| GET    | `/topicoss/{id}`            | Obtener un tópico por ID                  |
-| POST   | `/topicoss`                 | Crear un nuevo tópico                     |
-| PUT    | `/topicoss/{id}`            | Actualizar un tópico existente            |
-| DELETE | `/topicoss/{id}`            | Eliminar un tópico por ID                 |
-| GET    | `/topicoss/search?curso=&year=` | Buscar tópicos por curso y/o año      |
-| GET    | `/topicoss/date10`          | Listar los 10 tópicos más antiguos        |
+| GET    | `/topicos/{id}`            | Obtener un tópico por ID                  |
+| POST   | `/topicos`                 | Crear un nuevo tópico                     |
+| PUT    | `/topicos/{id}`            | Actualizar un tópico existente            |
+| DELETE | `/topicos/{id}`            | Eliminar un tópico por ID                 |
+| GET    | `/topicos/search?curso=&year=` | Buscar tópicos por curso y/o año      |
+| GET    | `/topicos/date10`          | Listar los 10 tópicos más antiguos        |
 ----------------------------------------------------------------------------------
