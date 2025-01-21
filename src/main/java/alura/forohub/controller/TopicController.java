@@ -34,6 +34,25 @@ public class TopicController {
         return ResponseEntity.ok(repository.findByStatusTrue(pageable).map(ListTopicData::new));
     }
 
+    @GetMapping("/date10")
+    public ResponseEntity<Page<ListTopicData>> getTopicFirst10List(Pageable pageable){
+        return ResponseEntity.ok(repository.findTop10ByStatusTrueOrderByFechaCreacionAsc(pageable).map(ListTopicData::new));
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<Page<ListTopicData>> getTopicByNameAndYear(Pageable pageable, @RequestParam(required = false) String curso,@RequestParam(required = false) Integer year ){
+        if(curso != null && year != null){
+            return ResponseEntity.ok(repository.findByCursoAndYear(pageable,curso, year).map(ListTopicData::new));
+        }else if(curso != null){
+            return ResponseEntity.ok(repository.findByCurso(pageable,curso).map(ListTopicData::new));
+        }else if(year != null){
+            return ResponseEntity.ok(repository.findByYear(pageable,year).map(ListTopicData::new));
+        } else{
+            return ResponseEntity.noContent().build();
+        }
+
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<ResponseTopicData> getTopicById(@PathVariable Long id){
         Topic topic = repository.getReferenceById(id);
