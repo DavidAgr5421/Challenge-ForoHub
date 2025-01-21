@@ -37,18 +37,18 @@ json
   "type": "Bearer"
 }
 
-#2. Gestión de Tópicos
-##Se implementan operaciones CRUD completas para la entidad Topico. Además, se incluyen dos funcionalidades adicionales:
+#2. Gestión de Tópicos:
+Se implementan operaciones CRUD completas para la entidad Topico. Además, se incluyen dos funcionalidades adicionales:
 
-##Búsqueda personalizada por curso y año:
-###Permite buscar tópicos filtrando por curso y/o año. Los parámetros son opcionales, lo que significa que puedes buscar con solo uno de ellos o con ambos.
+-Búsqueda personalizada por curso y año:
+-++Permite buscar tópicos filtrando por curso y/o año. Los parámetros son opcionales, lo que significa que puedes buscar con solo uno de ellos o con ambos.
 
   -**sql**
   -**Copy**
   -**Edit**
   -**GET: localhost:8080/topics/search?curso=<nombre_curso>&year=<año>**
-##Listado de 10 tópicos más antiguos:
-###Retorna los primeros 10 tópicos creados, ordenados en forma ascendente según la fecha de creación.
+-Listado de 10 tópicos más antiguos:
+-++Retorna los primeros 10 tópicos creados, ordenados en forma ascendente según la fecha de creación.
 
   -**bash**
   -**Copy**
@@ -65,11 +65,11 @@ json
 ### **Tópicos**
 | Método | Endpoint                  | Descripción                                |
 |--------|---------------------------|--------------------------------------------|
-| GET    | `/topics`                 | Listar todos los tópicos                  |
-| GET    | `/topics/{id}`            | Obtener un tópico por ID                  |
-| POST   | `/topics`                 | Crear un nuevo tópico                     |
-| PUT    | `/topics/{id}`            | Actualizar un tópico existente            |
-| DELETE | `/topics/{id}`            | Eliminar un tópico por ID                 |
-| GET    | `/topics/search?curso=&year=` | Buscar tópicos por curso y/o año      |
-| GET    | `/topics/date10`          | Listar los 10 tópicos más antiguos        |
+| GET    | `/topicoss`                 | Listar todos los tópicos                  |
+| GET    | `/topicoss/{id}`            | Obtener un tópico por ID                  |
+| POST   | `/topicoss`                 | Crear un nuevo tópico                     |
+| PUT    | `/topicoss/{id}`            | Actualizar un tópico existente            |
+| DELETE | `/topicoss/{id}`            | Eliminar un tópico por ID                 |
+| GET    | `/topicoss/search?curso=&year=` | Buscar tópicos por curso y/o año      |
+| GET    | `/topicoss/date10`          | Listar los 10 tópicos más antiguos        |
 ----------------------------------------------------------------------------------
