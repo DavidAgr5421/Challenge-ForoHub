@@ -12,6 +12,6 @@ public record ResponseAnswerData(
 ) {
 
     public ResponseAnswerData(Answer answer){
-        this(answer.getId(), answer.getMensaje(), answer.getTopicoId(), answer.getFechaCreacion(), answer.getUser().GetId(), answer.getRespuestaPadreId());
+        this(answer.getId(), answer.getMensaje(), answer.getTopic().getId(), answer.getFechaCreacion(), answer.getUser().GetId(), answer.getRespuestaPadreId());
     }
 }

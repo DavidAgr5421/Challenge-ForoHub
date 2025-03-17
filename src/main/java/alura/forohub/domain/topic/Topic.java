@@ -40,6 +40,16 @@ public class Topic {
         this.curso = course;
     }
 
+    public Topic(Topic topicByIdEntity) {
+        this.titulo = topicByIdEntity.getTitulo();
+        this.autor = topicByIdEntity.getAutor();
+        this.mensaje = topicByIdEntity.getMensaje();
+        this.status = topicByIdEntity.getStatus();
+        this.status = topicByIdEntity.getStatus();
+        this.curso = topicByIdEntity.getCurso();
+    }
+
+
     public Long getId() {
         return id;
     }

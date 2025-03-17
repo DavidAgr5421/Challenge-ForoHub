@@ -31,9 +31,9 @@ public class AnswersService {
 
     public ResponseEntity<ResponseAnswerData> registerAnswer(Long id, RegisterAnswerData registerAnswer, String username, UriComponentsBuilder uriComponentsBuilder){
         Optional<User> user = Optional.ofNullable(userService.getUserByName(username));
-        Optional<Topic> topic = Optional.ofNullable(new Topic(topicService.getTopicById(id)));
+        Topic topic = new Topic(topicService.getTopicByIdEntity(id));
         if(user.isPresent()){
-            Answer answer = repository.save(new Answer(registerAnswer,user.get(),id));
+            Answer answer = (Answer) repository.save(new Answer(registerAnswer,user.get(), topic));
             URI url = uriComponentsBuilder.path(id+"/respuestas/{id}").buildAndExpand(user.get().GetId()).toUri();
             ResponseAnswerData responseAnswerData = new ResponseAnswerData(answer);
             return ResponseEntity.created(url).body(responseAnswerData);

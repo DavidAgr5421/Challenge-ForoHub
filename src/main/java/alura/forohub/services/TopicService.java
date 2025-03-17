@@ -23,6 +23,7 @@ public class TopicService {
     @Autowired
     private CourseRepository courseRepository;
 
+
     public ResponseEntity<ResponseTopicData> registerTopic(RegisterTopicData registerTopic, UriComponentsBuilder uriComponentsBuilder){
         Optional<Course> course = courseRepository.findByNombre(registerTopic.curso().toUpperCase());
         if(course.isPresent()){
@@ -58,6 +59,10 @@ public class TopicService {
     public ResponseEntity<ResponseTopicData> getTopicById(Long id){
         Topic topic = repository.getReferenceById(id);
         return ResponseEntity.ok(new ResponseTopicData(topic));
+    }
+
+    public Topic getTopicByIdEntity(Long id){
+        return repository.getReferenceById(id);
     }
 
     public ResponseEntity<ResponseTopicData> updateTopicById(UpdateTopicData updateTopicData, Long id){
