@@ -1,0 +1,1 @@
+alter table topics change column curso curso_id bigint;

@@ -1,6 +1,7 @@
 package alura.forohub.domain.topic;
 
 
+import alura.forohub.domain.course.Course;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -26,17 +27,17 @@ public class Topic {
     private LocalDateTime fechaCreacion;
     private Boolean status;
     private String autor;
-    private String curso;
+    @ManyToOne
+    @JoinColumn(name= "curso_id")
+    private Course curso;
 
-    public Topic(){}
-
-    public Topic(RegisterTopicData topicData){
+    public Topic(RegisterTopicData topicData, Course course){
         this.titulo = topicData.titulo();
         this.autor = topicData.autor();
         this.mensaje = topicData.mensaje();
-        this.curso = topicData.curso();
         this.status = true;
         this.fechaCreacion = LocalDateTime.now();
+        this.curso = course;
     }
 
     public Long getId() {
@@ -87,11 +88,11 @@ public class Topic {
         this.autor = autor;
     }
 
-    public String getCurso() {
+    public Course getCurso() {
         return curso;
     }
 
-    public void setCurso(String curso) {
+    public void setCurso(Course curso) {
         this.curso = curso;
     }
 
@@ -99,7 +100,7 @@ public class Topic {
         this.status = false;
     }
 
-    public void updateData(UpdateTopicData updateTopicData){
+    public void updateData(UpdateTopicData updateTopicData, Course course){
         if(updateTopicData.titulo() != null){
             this.titulo = updateTopicData.titulo();
         }
@@ -109,8 +110,8 @@ public class Topic {
         if(updateTopicData.autor() != null){
             this.autor = updateTopicData.autor();
         }
-        if(updateTopicData.curso() != null){
-            this.curso = updateTopicData.curso();
+        if(course != null){
+            this.curso = course;
         }
 
     }

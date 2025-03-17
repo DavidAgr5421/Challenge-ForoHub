@@ -1,5 +1,7 @@
 package alura.forohub.domain.topic;
 
+import alura.forohub.domain.course.Course;
+
 import java.time.LocalDateTime;
 
 public record ResponseTopicData(
@@ -7,7 +9,7 @@ public record ResponseTopicData(
         String titulo,
         String mensaje,
         String autor,
-        String curso,
+        Course curso,
         Boolean status,
         LocalDateTime fechaCreacion
 ) {

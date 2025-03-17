@@ -27,15 +27,23 @@ public class ErrorHandler {
     }
 
     @ExceptionHandler(SQLIntegrityConstraintViolationException.class)
-    public ResponseEntity hnadleDuplicateEntry(SQLIntegrityConstraintViolationException exception){
+    public ResponseEntity handleDuplicateEntry(SQLIntegrityConstraintViolationException exception){
             ErrorDataValidation errorDataValidation = new ErrorDataValidation("Titulo | Mensaje","La entidad que estás intentando registrar ya existe: " + exception.getMessage());
             return ResponseEntity.status(HttpStatus.CONFLICT).body(errorDataValidation);
     }
 
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity handleIllegalArgumentError(IllegalArgumentException e){
+        ErrorDataValidation handleIllegalArgument = new ErrorDataValidation("| Argumento Invalido en Campo |","El argumento que estas enviando es incorrecto: "+e.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(handleIllegalArgument);
+    }
 
+
+    //Errors Handler Record Data
     private record ErrorDataValidation(String campo, String error){
         public ErrorDataValidation(FieldError fieldError){
             this(fieldError.getField(), fieldError.getDefaultMessage());
         }
     }
+
 }
