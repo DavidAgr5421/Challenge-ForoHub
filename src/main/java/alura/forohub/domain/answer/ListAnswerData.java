@@ -9,6 +9,6 @@ public record ListAnswerData(
         Long autor_id
 ) {
     public ListAnswerData(Answer answer){
-        this(answer.getId(), answer.getMensaje(), answer.getFechaCreacion(), answer.getAutorId());
+        this(answer.getId(), answer.getMensaje(), answer.getFechaCreacion(), answer.getUser().GetId());
     }
 }
